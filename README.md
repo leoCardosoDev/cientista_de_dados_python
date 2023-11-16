@@ -3,20 +3,19 @@
 O Docker Compose é uma ferramenta que permite definir e gerenciar aplicativos Docker multi-contêiner em um único arquivo, chamado docker-compose.yml. Neste caso, utilizaremos o Docker Compose para criar um ambiente contendo o Jupyter Notebook com Python e Anaconda.
 
 Aqui está o conteúdo do arquivo docker-compose.yml:
-
-`
-version: '3'
-services:
-  jupyter:
-    image: continuumio/anaconda3:latest
-    ports:
-      - "8888:8888"
-    volumes:
-      - ./notebooks:/opt/notebooks
-    environment:
-      - JUPYTER_ENABLE_LAB=yes
-    command: ["jupyter", "lab", "--ip='0.0.0.0'", "--port=8888", "--no-browser", "--allow-root", "--NotebookApp.token=''", "--NotebookApp.password=''"]
-`
+```
+  version: '3'
+  services:
+    jupyter:
+      image: continuumio/anaconda3:latest
+      ports:
+        - "8888:8888"
+      volumes:
+        - ./notebooks:/opt/notebooks
+      environment:
+        - JUPYTER_ENABLE_LAB=yes
+      command: ["jupyter", "lab", "--ip='0.0.0.0'", "--port=8888", "--no-browser", "--allow-root", "--NotebookApp.token=''", "--NotebookApp.password=''"]
+```
 
 #### Explicação dos principais elementos:
 
